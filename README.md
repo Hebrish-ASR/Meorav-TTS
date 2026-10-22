@@ -70,6 +70,16 @@ are useful to anyone fine-tuning Qwen3-TTS, and none was merged upstream as of 2
 Each change is marked `VC1026` in the code (the project's working name when they were written).
 Details and the evidence for each: [`docs/training-plan.md`](docs/training-plan.md).
 
+## Recordings
+
+The takes come from a phone capture app that records raw 48 kHz / 24-bit PCM with browser voice
+processing off. It also collects Hebrish's speech-recognition data, and the two need different
+conditions. Speech recognition wants real ones: an air conditioner, a crying baby, people talking.
+A voice clone wants a quiet room. So the app has an explicit **voice-clone mode**, and only takes
+recorded in it, with no noise flags and passing the level checks (`tts_eligible`), go into Meorav's
+training set. The rule is one-way: a quiet-room take is good speech-recognition data too, but a noisy
+speech-recognition take never trains the voice.
+
 ## Pipeline
 
 ```
