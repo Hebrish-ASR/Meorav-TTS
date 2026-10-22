@@ -1,0 +1,327 @@
+{
+  "generated": "2026-10-21",
+  "source": {
+    "takes": 25,
+    "speech_seconds": 59.3,
+    "noise_seconds": 16.0,
+    "sample_rate": 48000,
+    "filter": "floor_dbfs <= -57.0",
+    "take_ids": [
+      "20261021T135124Z_oulq0w",
+      "20261021T135142Z_mhk57k",
+      "20261021T135149Z_t9lqb1",
+      "20261021T135154Z_evvly0",
+      "20261021T135159Z_q77lm2",
+      "20261021T135205Z_mdba8p",
+      "20261021T135209Z_ffgb90",
+      "20261021T135216Z_92uzni",
+      "20261021T135222Z_6nh97c",
+      "20261021T135227Z_36d042",
+      "20261021T135231Z_nhkyfk",
+      "20261021T135237Z_4338pf",
+      "20261021T135241Z_g6j39v",
+      "20261021T135247Z_v00a9o",
+      "20261021T135253Z_akokwi",
+      "20261021T135259Z_5fxh22",
+      "20261021T135304Z_z35z4z",
+      "20261021T135309Z_lj9558",
+      "20261021T135313Z_sacsc2",
+      "20261021T135319Z_0k71q7",
+      "20261021T135326Z_bdq1i0",
+      "20261021T135329Z_e01mid",
+      "20261021T135334Z_2yxifb",
+      "20261021T135338Z_vlo6dm",
+      "20261021T135344Z_fr2qhe"
+    ],
+    "microphone": [
+      "unset"
+    ],
+    "room": [
+      "unset"
+    ]
+  },
+  "pitch_hz": {
+    "p5": 78.5,
+    "median": 105.8,
+    "p95": 196.9,
+    "range_semitones_p5_p95": 15.9
+  },
+  "formants_hz_median": {
+    "F1": 469.9,
+    "F2": 1586.8,
+    "F3": 2368.4,
+    "note": "long-term medians over voiced frames; depend on the vowel mix of these prompts"
+  },
+  "spectrum": {
+    "centroid_hz": 767,
+    "tilt_db_per_octave_250_8k": -7.1,
+    "sibilance_peak_hz": 4090,
+    "sibilance_5_9k_vs_1_4k_db": -10.6
+  },
+  "loudness_lufs": {
+    "median": -20.0,
+    "min": -22.0,
+    "max": -20.0
+  },
+  "noise": {
+    "hum": {
+      "50_hz_over_local_db": 2.7,
+      "100_hz_over_local_db": 0.8,
+      "150_hz_over_local_db": -0.5
+    }
+  },
+  "third_octave": [
+    {
+      "fc": 50,
+      "voice_db": 14.5,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": 2.4,
+      "snr_db": 12.2
+    },
+    {
+      "fc": 63,
+      "voice_db": 28.4,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": 0.1,
+      "snr_db": 28.4
+    },
+    {
+      "fc": 80,
+      "voice_db": 36.1,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": -3.5,
+      "snr_db": 39.6
+    },
+    {
+      "fc": 100,
+      "voice_db": 44.6,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": 3.7,
+      "snr_db": 40.8
+    },
+    {
+      "fc": 125,
+      "voice_db": 45.7,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": 6.4,
+      "snr_db": 39.3
+    },
+    {
+      "fc": 160,
+      "voice_db": 48.3,
+      "ansi_db": 48.1,
+      "dev_db": 0.2,
+      "noise_db": 6.1,
+      "snr_db": 42.1
+    },
+    {
+      "fc": 200,
+      "voice_db": 49.7,
+      "ansi_db": 51.1,
+      "dev_db": -1.4,
+      "noise_db": 8.2,
+      "snr_db": 41.6
+    },
+    {
+      "fc": 250,
+      "voice_db": 49.1,
+      "ansi_db": 52.4,
+      "dev_db": -3.3,
+      "noise_db": 5.2,
+      "snr_db": 43.9
+    },
+    {
+      "fc": 315,
+      "voice_db": 51.6,
+      "ansi_db": 52.6,
+      "dev_db": -1.0,
+      "noise_db": 6.2,
+      "snr_db": 45.3
+    },
+    {
+      "fc": 400,
+      "voice_db": 54.7,
+      "ansi_db": 54.3,
+      "dev_db": 0.4,
+      "noise_db": -0.3,
+      "snr_db": 55.0
+    },
+    {
+      "fc": 500,
+      "voice_db": 55.3,
+      "ansi_db": 54.9,
+      "dev_db": 0.4,
+      "noise_db": -2.6,
+      "snr_db": 57.9
+    },
+    {
+      "fc": 630,
+      "voice_db": 55.0,
+      "ansi_db": 53.7,
+      "dev_db": 1.3,
+      "noise_db": -0.6,
+      "snr_db": 55.6
+    },
+    {
+      "fc": 800,
+      "voice_db": 48.9,
+      "ansi_db": 51.0,
+      "dev_db": -2.1,
+      "noise_db": -6.2,
+      "snr_db": 55.1
+    },
+    {
+      "fc": 1000,
+      "voice_db": 46.9,
+      "ansi_db": 48.7,
+      "dev_db": -1.8,
+      "noise_db": -8.3,
+      "snr_db": 55.2
+    },
+    {
+      "fc": 1250,
+      "voice_db": 47.2,
+      "ansi_db": 47.6,
+      "dev_db": -0.4,
+      "noise_db": -9.6,
+      "snr_db": 56.8
+    },
+    {
+      "fc": 1600,
+      "voice_db": 46.9,
+      "ansi_db": 45.8,
+      "dev_db": 1.1,
+      "noise_db": -1.6,
+      "snr_db": 48.4
+    },
+    {
+      "fc": 2000,
+      "voice_db": 47.8,
+      "ansi_db": 44.0,
+      "dev_db": 3.8,
+      "noise_db": -1.0,
+      "snr_db": 48.8
+    },
+    {
+      "fc": 2500,
+      "voice_db": 45.4,
+      "ansi_db": 40.8,
+      "dev_db": 4.6,
+      "noise_db": -0.9,
+      "snr_db": 46.3
+    },
+    {
+      "fc": 3150,
+      "voice_db": 41.2,
+      "ansi_db": 40.2,
+      "dev_db": 1.0,
+      "noise_db": 0.7,
+      "snr_db": 40.5
+    },
+    {
+      "fc": 4000,
+      "voice_db": 43.6,
+      "ansi_db": 39.0,
+      "dev_db": 4.6,
+      "noise_db": -0.0,
+      "snr_db": 43.6
+    },
+    {
+      "fc": 5000,
+      "voice_db": 41.5,
+      "ansi_db": 35.9,
+      "dev_db": 5.6,
+      "noise_db": -0.8,
+      "snr_db": 42.3
+    },
+    {
+      "fc": 6300,
+      "voice_db": 40.3,
+      "ansi_db": 34.2,
+      "dev_db": 6.1,
+      "noise_db": -5.1,
+      "snr_db": 45.4
+    },
+    {
+      "fc": 8000,
+      "voice_db": 32.6,
+      "ansi_db": 33.8,
+      "dev_db": -1.2,
+      "noise_db": -14.5,
+      "snr_db": 47.1
+    },
+    {
+      "fc": 10000,
+      "voice_db": 35.3,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": -12.0,
+      "snr_db": 47.3
+    },
+    {
+      "fc": 12500,
+      "voice_db": 31.8,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": -12.3,
+      "snr_db": 44.2
+    },
+    {
+      "fc": 16000,
+      "voice_db": 29.1,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": -11.1,
+      "snr_db": 40.2
+    },
+    {
+      "fc": 20000,
+      "voice_db": 34.6,
+      "ansi_db": null,
+      "dev_db": null,
+      "noise_db": -0.0,
+      "snr_db": 34.7
+    }
+  ],
+  "eq_suggestion": [
+    {
+      "type": "highpass",
+      "f": 65,
+      "order": 4,
+      "why": "below the lowest voiced pitch (0.8 x F0 5th percentile): rumble, AC, handling"
+    },
+    {
+      "type": "peak",
+      "f": 250,
+      "gain_db": 1.1,
+      "q": 1.4,
+      "why": "voice is -2.2 dB vs ANSI S3.5 average speech here (smoothed)"
+    },
+    {
+      "type": "peak",
+      "f": 2500,
+      "gain_db": -1.8,
+      "q": 1.4,
+      "why": "voice is +3.5 dB vs ANSI S3.5 average speech here (smoothed)"
+    },
+    {
+      "type": "peak",
+      "f": 5000,
+      "gain_db": -2.7,
+      "q": 1.4,
+      "why": "voice is +5.5 dB vs ANSI S3.5 average speech here (smoothed)"
+    },
+    {
+      "type": "highshelf",
+      "f": 10000,
+      "gain_db": 1.5,
+      "q": 0.707,
+      "why": "optional 'air' for podcast playback; SNR above 10 kHz is 44 dB, so it lifts little noise"
+    }
+  ]
+}

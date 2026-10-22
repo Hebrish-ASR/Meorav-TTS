@@ -1,0 +1,23 @@
+Meorav TTS
+Copyright (c) 2026 Daniel Rosehill (Hebrish)
+
+Licensing of the files in this repository:
+
+- training/sft_12hz_patched.py is a modified copy of finetuning/sft_12hz.py from
+  QwenLM/Qwen3-TTS (https://github.com/QwenLM/Qwen3-TTS), commit
+  022e286b98fbec7e1e916cb940cdf532cd9f488e.
+  Copyright 2026 The Alibaba Qwen team. Licensed under the Apache License,
+  Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0). The file keeps its
+  original licence header; every modification is marked "VC1026" in the code
+  and listed at the top of the file.
+
+- Everything else is original to this project and released under the MIT
+  licence in LICENSE.
+
+Not in this repository, and licensed separately:
+
+- The training data, Hugging Face dataset Hebrish/Hebrish-TTS-Voice-Recordings:
+  CC BY-NC 4.0.
+- The trained checkpoints (e.g. Hebrish/TTS-V1, Meorav PoC-1): CC BY-NC 4.0.
+- The base model Qwen/Qwen3-TTS-12Hz-1.7B-Base and the qwen-tts package:
+  Apache 2.0.

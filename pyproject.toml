@@ -1,0 +1,17 @@
+[project]
+name = "meorav-tts-tools"
+version = "0.1.0"
+description = "Voice profile analysis and training-data prep for Meorav TTS"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "scipy",
+  "soundfile",
+  "praat-parselmouth",
+  "noisereduce",
+  "pyloudnorm",
+  "matplotlib",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,32 @@
+{
+  "_doc": "Training-data processing chain (variant 'podcast'), read by scripts/prep_clean.py. Decided 2026-10-21 by Daniel: train on the podcast-processed voice, with de-essing, gentle compression and normalisation. Reasoning and measurements: docs/voice-profile.md.",
+  "denoise": {
+    "method": "noisereduce stationary, the take's own quietest frames as the noise profile",
+    "prop_decrease": 0.6
+  },
+  "eq": {
+    "_source": "Daniel's own voice EQ from his podcast production pipeline, unchanged. ffmpeg filter syntax.",
+    "ffmpeg": [
+      "highpass=f=80:p=2",
+      "equalizer=f=150:t=q:w=1.0:g=-4",
+      "equalizer=f=350:t=q:w=1.2:g=-3",
+      "equalizer=f=3000:t=q:w=1.5:g=3",
+      "equalizer=f=6000:t=q:w=1.5:g=2"
+    ]
+  },
+  "deesser": {
+    "_why": "Measured sibilance peak 5.3 kHz, +2 to +3 dB over average speech at 5-6.3 kHz, and the EQ adds +2 dB at 6 kHz. Split-band and dynamic: only the 4.5-9 kHz band, only while it dominates.",
+    "band_hz": [4500, 9000],
+    "threshold_db": -12,
+    "ratio": 4,
+    "max_reduction_db": 8,
+    "attack_ms": 2,
+    "release_ms": 60
+  },
+  "compressor": {
+    "_source": "The same podcast pipeline's dialogue-bus compressor, applied after normalising the take to the loudness target so the threshold means the same on every take.",
+    "ffmpeg": "acompressor=threshold=-20dB:ratio=2:attack=8:release=120:makeup=1"
+  },
+  "loudness_lufs": -20,
+  "peak_ceiling_dbfs": -1
+}
