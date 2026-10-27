@@ -17,7 +17,7 @@ Jachnun, Shakshuka); like them, Meorav is named after Israeli food. *Meorav* is 
 
 | Checkpoint | Date | Data | Published | Verdict |
 | --- | --- | --- | --- | --- |
-| **Meorav PoC-1** (run `first-test`) | 2026-10-22 | 657 read takes, 50 min after trimming | [`Hebrish/TTS-V1`](https://huggingface.co/Hebrish/TTS-V1) (experimental) | Ran end to end; loss 2.88 to about 1.6; all 27 listening-set samples stop cleanly at lengths near the real takes. Listening verdict pending |
+| **Meorav PoC-1** (run `first-test`) | 2026-10-22 | 657 read takes, 50 min after trimming | `Hebrish/TTS-V1` (removed from Hugging Face; 404 on 2026-10-27) | Ran end to end; loss 2.88 to about 1.6; all 27 listening-set samples stop cleanly at lengths near the real takes. Listening verdict pending |
 | Meorav v1.0 | not yet | target 2.5–3 h, including free speech | will be published on Hugging Face under the Meorav name | |
 
 PoC-1 settings: LR 7e-6, 3 epochs, batch 2 with gradient accumulation 4 (effective 8), one L40S on
@@ -36,7 +36,7 @@ provisional until v1.0.
 | | |
 | --- | --- |
 | Dataset | [`Hebrish/Hebrish-TTS-Voice-Recordings`](https://huggingface.co/datasets/Hebrish/Hebrish-TTS-Voice-Recordings), CC BY-NC 4.0 |
-| Model (PoC-1) | [`Hebrish/TTS-V1`](https://huggingface.co/Hebrish/TTS-V1), CC BY-NC 4.0 |
+| Model (PoC-1) | was `Hebrish/TTS-V1`, CC BY-NC 4.0; removed from Hugging Face (404 on 2026-10-27). Current versions: [`Hebrish/Meorav`](https://huggingface.co/Hebrish/Meorav) |
 | Base model | [`Qwen/Qwen3-TTS-12Hz-1.7B-Base`](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base), Apache 2.0 |
 | Project | [hebrish.app](https://hebrish.app) |
 
