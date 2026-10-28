@@ -9,6 +9,15 @@ data/test/audio/<id>.wav     data/test/metadata.jsonl    (held out: the listenin
 
 `id` = `YYYYMMDDTHHMMSSZ_<6 random>`.
 
+**Second config `from-stt` (2026-10-28, Daniel: "try to get as many in there as we can. Just don't take
+the noisy ones").** `from-stt/<split>/audio/<id>.flac` + `metadata.jsonl`: 3,126 clean speech-to-text takes
+(284.6 min, 48 kHz / 24-bit FLAC) of the same speaker, recorded for ASR, not for the clone. Not denoised and
+not filtered on background noise (DNSMOS `bak`): **denoise at prep**. Extra columns `tts_config`,
+`has_digits` (464 rows keep digits in `text`; this config's prompts are ASR prompts, so verbalise or skip
+them) and `categories`. Split = the take's ASR split, not a Meorav listening-test split. The default
+config is unchanged; load this one with `load_dataset(..., "from-stt")` and compare runs with and
+without it. Selection rule: Voice-Training-Recorder `docs/dataset.md`, "TTS from STT".
+
 ## Row schema
 
 Written by the capture app when it publishes a take. `training/prepare.py` reads `file_name`, `id`, `text`,
