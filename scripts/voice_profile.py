@@ -5,7 +5,7 @@ floor, loudness, and a suggested personal EQ.
     uv run scripts/voice_profile.py --max-floor-dbfs 0    # every take
 
 Input: an HF "audiofolder" copy of the dataset (`metadata.jsonl` + `audio/*.wav`); fetch it with
-the commands in docs/voice-profile.md. Output (committed; no audio): `docs/voice-profile/
+`python3 scripts/fetch_dataset.py train data/takes` (docs/voice-profile.md). Output (committed; no audio): `docs/voice-profile/
 profile.json` (machine-readable), `profile.md`, `ltas.png`. Its EQ suggestion is diagnostic;
 training uses config/podcast-chain.json.
 

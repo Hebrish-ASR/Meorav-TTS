@@ -1,16 +1,29 @@
 # Dataset
 
-Public HF dataset `Hebrish/Hebrish-TTS-Voice-Recordings` (audiofolder layout, CC BY-NC 4.0; public since 2026-10-21):
+Public HF dataset `Hebrish/Hebrish-TTS-Voice-Recordings` (CC BY-NC 4.0; public since 2026-10-21). Two
+splits, `train` and `test` (held out: the listening test, never trained on).
+
+**Layout.** On 2026-10-30 the Hebrish take datasets were converted from audiofolders to Parquet on `main`
+(layout spec: Voice-Training-Recorder `docs/parquet-layout.md`). A dataset is Parquet once `meta/schema.json`
+exists on `main`:
 
 ```
-data/train/audio/<id>.wav    data/train/metadata.jsonl
-data/test/audio/<id>.wav     data/test/metadata.jsonl    (held out: the listening test, never trained on)
+data/train-*.parquet  data/test-*.parquet     one row per take: `audio` (struct of bytes, path; the WAV verbatim) + the columns below
+meta/train.jsonl      meta/test.jsonl         index: each row's metadata without audio, `audio_path` (was `file_name`),
+                                              `shard`, and `audio_offset` / `audio_length` (the WAV's byte range in the shard)
 ```
+
+Before that (and at any earlier revision) it was an audiofolder: `data/<split>/audio/<id>.wav` +
+`data/<split>/metadata.jsonl`. `scripts/fetch_dataset.py` (what `training/run.sh fetch` calls) reads either and
+writes the same local audiofolder, `data/takes/{metadata.jsonl,audio/}`, which the prep scripts read; on Parquet
+it downloads only the shards holding takes not yet on disk and cuts each WAV out by its byte range.
+`load_dataset("Hebrish/Hebrish-TTS-Voice-Recordings")` loads the Parquet directly (`audio` decodes with
+torchcodec; cast to `Audio(decode=False)` for the bytes).
 
 `id` = `YYYYMMDDTHHMMSSZ_<6 random>`.
 
 **Second config `from-stt` (2026-10-28, Daniel: "try to get as many in there as we can. Just don't take
-the noisy ones").** `from-stt/<split>/audio/<id>.flac` + `metadata.jsonl`: 3,126 clean speech-to-text takes
+the noisy ones").** `from-stt/<split>-*.parquet` with index `meta/from-stt/<split>.jsonl` (audiofolder: `from-stt/<split>/audio/<id>.flac` + `metadata.jsonl`; fetch with `scripts/fetch_dataset.py <split> <dir> --config from-stt`): 3,126 clean speech-to-text takes
 (284.6 min, 48 kHz / 24-bit FLAC) of the same speaker, recorded for ASR, not for the clone. Not denoised and
 not filtered on background noise (DNSMOS `bak`): **denoise at prep**. Extra columns `tts_config`,
 `has_digits` (464 rows keep digits in `text`; this config's prompts are ASR prompts, so verbalise or skip
@@ -20,7 +33,7 @@ without it. Selection rule: Voice-Training-Recorder `docs/dataset.md`, "TTS from
 
 ## Row schema
 
-Written by the capture app when it publishes a take. `training/prepare.py` reads `file_name`, `id`, `text`,
+Written by the capture app when it publishes a take. `training/prepare.py` reads `file_name` (the local audiofolder's; `audio_path` in the Parquet index), `id`, `text`,
 `set`, `style`, `edited`, `prompt_id`, `transcript_status`, `clipped_samples`, `browser_processing` and
 `snr_db`; a dataset of your own needs at least those.
 

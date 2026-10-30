@@ -7,12 +7,8 @@ raw takes. **Training uses the podcast chain** (below); raw takes stay untouched
 ## Running it
 
 ```bash
-# 1. Local copy of the HF dataset (gitignored; never commit audio)
-R=Hebrish/Hebrish-TTS-Voice-Recordings; mkdir -p data/takes/audio && cd data/takes
-curl -sL -H "authorization: Bearer $HF_TOKEN" -o metadata.jsonl "https://huggingface.co/datasets/$R/resolve/main/data/train/metadata.jsonl"
-for f in $(python3 -c "import json;[print(json.loads(l)['file_name']) for l in open('metadata.jsonl')]"); do
-  curl -sL -H "authorization: Bearer $HF_TOKEN" -o "$f" "https://huggingface.co/datasets/$R/resolve/main/data/train/$f"; done
-cd ../..
+# 1. Local copy of the HF dataset (gitignored; never commit audio): data/takes/{metadata.jsonl,audio/}
+python3 scripts/fetch_dataset.py train data/takes   # or: training/run.sh fetch (train + test)
 # 2. Profile (writes docs/voice-profile/), then the cleaned copies (data/processed/, gitignored)
 uv run scripts/voice_profile.py                 # --max-floor-dbfs -57 by default: quiet-room takes only
 uv run scripts/prep_clean.py                    # podcast chain (training default); --variant clean, --ab 6

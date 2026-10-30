@@ -83,7 +83,8 @@ speech-recognition take never trains the voice.
 ## Pipeline
 
 ```
-HF dataset (48 kHz / 24-bit WAV + metadata.jsonl)
+HF dataset (48 kHz / 24-bit WAV; Parquet shards, or an audiofolder for your own)
+  -> scripts/fetch_dataset.py   local audiofolder data/takes/ (metadata.jsonl + audio/), new takes only
   -> scripts/prep_clean.py      podcast chain: partial denoise, voice EQ, de-ess, 2:1 compression, -20 LUFS
   -> training/prepare.py        filter, trim (0.15 s head / 0.5 s tail), 48 -> 24 kHz, Qwen JSONL, one fixed reference take
   -> training/modal_app.py      upload + codec-tokenize (A10) -> train (L40S / A100-80GB) -> sample every checkpoint
@@ -122,7 +123,7 @@ Costs per stage: [`docs/compute-and-cost.md`](docs/compute-and-cost.md).
    rather than reading voice. Numbers spelled out in the text as spoken. Spec:
    [`docs/recording-spec.md`](docs/recording-spec.md); schema and prompt sets: [`docs/dataset.md`](docs/dataset.md).
 2. **Publish** the takes as a Hugging Face audiofolder (`data/train/`, `data/test/`, each with
-   `audio/` and `metadata.jsonl`) and set `MEORAV_DATASET` to it, or place the files under
+   `audio/` and `metadata.jsonl`; the Parquet layout of the Hebrish datasets also works) and set `MEORAV_DATASET` to it, or place the files under
    `data/takes/` yourself.
 3. **Replace the processing chain.** [`config/podcast-chain.json`](config/podcast-chain.json) is tuned to
    this voice (its EQ and de-esser band come from the measurements in
